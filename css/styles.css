@@ -74,6 +74,29 @@
   margin: 2px 0 32px 0;
 }
 
+#destacados .carousel {
+  width: 100%;
+  padding-bottom: 32px;
+}
+
+#destacados .carousel-item img {
+  object-fit: scale-down;
+  max-height: 300px;
+}
+
+#destacados .carousel-caption {
+  padding-bottom: 0;
+}
+
+#destacados .carousel button {
+  background-color: #d6dcdd;
+}
+
+#unete {
+  margin: 32px 200px 32px 200px;
+  text-align: center;
+}
+
 p {
   color: #7f8c8d;
   font-size: 14px;
@@ -112,9 +135,7 @@ a:hover {
 }
 
 header {
-  background-color: #66ff00a2;
   padding: 20px;
-  color: white;
   text-align: center;
   position: relative;
   margin-bottom: 50px;
@@ -127,7 +148,6 @@ header h1 {
   text-transform: uppercase;
   letter-spacing: 10px;
   line-height: 1;
-  color: white;
 }
 
 header nav {
