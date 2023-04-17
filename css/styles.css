@@ -97,6 +97,13 @@
   text-align: center;
 }
 
+.shopping-cart .def-number-input.number-input input[type=number].black-text,
+.shopping-cart .def-number-input.number-input input.btn.btn-link[type=number],
+.shopping-cart .def-number-input.number-input input.md-toast-close-button[type=number]:hover,
+.shopping-cart .def-number-input.number-input input.md-toast-close-button[type=number]:focus {
+  color: #212529bb !important;
+}
+
 p {
   color: #7f8c8d;
   font-size: 14px;

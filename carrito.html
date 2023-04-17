@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Carrito</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color:white;">FriendlyPet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" style="color:white;" page" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" style="color:white;" href="carrito.html">Carrito</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;" ms-auto href="registro.html">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="h-100 h-custom" style="background-color: #eee;">
+        <div class="container h-100 py-5">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class="card shopping-cart" style="border-radius: 15px;">
+                        <div class="card-body text-black">
+
+                            <div class="row">
+                                <div class="col-lg-6 px-5 py-4">
+
+                                    <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Carrito</h3>
+
+                                    <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
+
+                                    <div class="d-flex justify-content-center mb-0 p-4"
+                                        style="background-color: #e1f5fe;">
+                                        <h5 class="fw-bold mb-0">No hay productos añadidos.</h5>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6 px-5 py-4">
+
+                                    <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Medio de pago</h3>
+
+                                    <form class="mb-5">
+
+                                        <div class="form-outline mb-5">
+                                            <input type="text" id="typeText" class="form-control form-control-lg"
+                                                size="17" alt="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                            <label class="form-label" for="typeText">Número de Tarjeta</label>
+                                        </div>
+
+                                        <div class="form-outline mb-5">
+                                            <input type="text" id="typeName" class="form-control form-control-lg"
+                                                size="17" alt="Sebastian Perez" />
+                                            <label class="form-label" for="typeName">Nombre en Tarjeta</label>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-5">
+                                                <div class="form-outline">
+                                                    <input type="text" id="typeExp" class="form-control form-control-lg"
+                                                        alt="01/22" size="7" id="exp" minlength="7" maxlength="7" />
+                                                    <label class="form-label" for="typeExp">Fecha de Expiración</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-5">
+                                                <div class="form-outline">
+                                                    <input type="password" id="typeText"
+                                                        class="form-control form-control-lg" alt="&#9679;&#9679;&#9679;"
+                                                        size="1" minlength="3" maxlength="3" />
+                                                    <label class="form-label" for="typeText">Cvv</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="mb-5">Para añadir más productos al carrito, vea nuestros <a
+                                                href="/productos.html">productos</a>.</p>
+
+                                        <button type="button" class="btn btn-primary btn-block btn-lg">Comprar
+                                            ahora</button>
+
+                                        <h5 class="fw-bold mb-5" style="position: absolute; bottom: 0;">
+                                            <a href="#!"><i class="fas fa-angle-left me-2"></i>Volver</a>
+                                        </h5>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
