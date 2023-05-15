@@ -7,6 +7,7 @@ $(function(){
             window.location.reload();
         }
         else if (usd) {
+            $(this).text('Cambiar a CLP');
             $.getJSON('https://mindicador.cl/api', function(data) {
                 $( ".text-muted" ).each(function() {
                     var precio = $(this).text();
