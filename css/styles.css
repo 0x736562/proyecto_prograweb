@@ -54,7 +54,7 @@
   width: 100%;
 }
 
-#registro button[type="submit"] {
+#registro button[type="button"] {
   background-color: #2980b9;
   border: none;
   border-radius: 5px;
@@ -66,8 +66,34 @@
   width: 100%;
 }
 
-#registro button[type="submit"]:hover {
+#registro button[type="button"]:hover {
   background-color: #3498db;
+}
+
+#registro select {
+  margin: 2px 0 32px 0;
+}
+
+#registro button[type="buttonlimpiar"] {
+  background-color: #333638;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+#registro button[type="buttonlimpiar"]:hover {
+  background-color: #333638;
+}
+
+
+#destacados .carousel {
+  width: 100%;
+  padding-bottom: 32px;
 }
 
 #registro select {
