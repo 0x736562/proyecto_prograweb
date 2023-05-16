@@ -38,15 +38,7 @@ $(function()
     // definir patrones de caracteres a permitir
     let numeros = '123457890';
     let letras = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNMÁÉÍÓÚáéíóú ';
-
-    $('.txtRut').keypress(function(e)
-    {
-        // obtiene el codigo del caracter presionado y es convertido a 
-        // el mismo caracter
-        let caracter = String.fromCharCode(e.which); 
-        if(numeros.indexOf(caracter)<0) // verifica si el caracter esta en el patrón
-            return false; // evita que se escriba el caracter presionado
-    });
+    
     $('.txtDv').keypress(function(e)
     {
         // obtiene el codigo del caracter presionado y es convertido a 
