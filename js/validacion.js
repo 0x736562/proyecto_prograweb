@@ -28,7 +28,11 @@ $(function()
             alert('El formato del correo no es correcto');
             $('.txtEmail').focus();
         }
+        else {
+            alert('usuario es válido');
+        }
     });
+
     $('.btnLimpiar').click(function()
     {
         $('.txtRut, .txtDv, .txtNombre,.txtEmail').val('');
@@ -38,7 +42,7 @@ $(function()
     // definir patrones de caracteres a permitir
     let numeros = '123457890';
     let letras = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNMÁÉÍÓÚáéíóú ';
-    
+
     $('.txtDv').keypress(function(e)
     {
         // obtiene el codigo del caracter presionado y es convertido a 
