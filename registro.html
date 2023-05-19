@@ -44,15 +44,23 @@
 	<div class="container" id="registro">
 		<h1>Registro</h1>
 		<form>
-			<label for="Rut">RUT</label>
-			<input type="text" name="txtRut" class="txtRut" placeholder="ej: 43505169-K">
+			<div class="row">
+				<div class="col-8">
+					<label for="Rut">RUT</label>
+					<input type="number" name="txt-rut" class="txt-rut" placeholder="ej: 4350519" maxlength="8">
+				</div>
+				<div class="col-4">
+					<label for="Rut">DV</label>
+					<input type="number" name="txt-dv" class="txt-dv" placeholder="ej: K" maxlength="1">
+				</div>
+			</div>
 			<label for="Nombre">Nombre</label>
-			<input type="text" name="txtNombre" class="txtNombre" placeholder="ej: Juan" maxlength="50">
+			<input type="text" name="txtNombre" class="txt-nombre" placeholder="ej: Juan Marcos" maxlength="50">
 			<label for="Email">Email</label>
-			<input type="text" name="txtEmail" class="txtEmail" placeholder="ej: Ejemplo@gmail.com" maxlength="50">
+			<input type="text" name="txtEmail" class="txt-email" placeholder="ej: ejemplo@gmail.com" maxlength="50">
 				
 			<button type="button" class="btnAceptar">Aceptar</button>
-			<button type="buttonlimpiar" class="btnLimpiar">Limpiar</button>
+			<button type="buttonlimpiar" class="btnLimpiar" style="margin-top: 24px;">Limpiar</button>
 		</form>
 	</div>
 </body>
