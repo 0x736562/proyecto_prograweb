@@ -21,6 +21,10 @@ $(function () {
             showAlert('Falta el RUT.');
             $('.txt-rut').focus();
         }
+        else if ($('.txt-rut').val().length < 7) {
+            showAlert('RUT inválido.');
+            $('.txt-rut').focus();
+        }
         else if (!$('.txt-dv').val()) {
             showAlert('Falta el digito verificador.');
             $('.txt-dv').focus();
