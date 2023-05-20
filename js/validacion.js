@@ -1,82 +1,64 @@
 $(function()
 {
-    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
-    $('.btnAceptar').click(function()
+    // regex de validacion de correo
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
+    var rutRegex = /[^0-9]/g;
+    var dvRegex = /(?!K|k)[^0-9]/g;
+
+    hideAlert();
+    
+    // limitar solo numeros en rut
+    $('.txt-rut').keyup(function()
+    { 
+        $(this).val($(this).val().replace(rutRegex,''));
+    });
+
+    // limitar caracteres en dv
+    $('.txt-dv').keyup(function()
     {
-        if(!$('.txtRut').val())
+        $(this).val($(this).val().replace(dvRegex,''));
+    })
+
+    $('.btn-aceptar').click(function()
+    {
+        if(!$('.txt-rut').val())
         {
-            alert('Falta el rut');
-            $('.txtRut').focus();
+            showAlert('Falta el RUT.');
+            $('.txt-rut').focus();
         }
-        else if(!$('.txtDv').val())
+        else if(!$('.txt-dv').val())
         {
-            alert('Falta el dv');
-            $('.txtDv').focus();
+            showAlert('Falta el digito verificador.');
+            $('.txt-dv').focus();
         }
-        else if(! esValidoElRut($('.txtRut').val(),$('.txtDv').val()))
+        else if(!$.trim($('.txt-nombre').val()))
         {
-            alert('El rut no es válido');
-            $('.txtRut').focus();
+            showAlert('Falta el nombre');
+            $('.txt-nombre').focus();
         }
-        else if(!$.trim($('.txtNombre').val()))
+        else if(!emailRegex.test($('.txt-email').val()))
         {
-            alert('Falta el nombre');
-            $('.txtNombre').focus();
+            showAlert('El formato del correo no es correcto');
+            $('.txt-email').focus();
         }
-        else if(!emailRegex.test($('.txtEmail').val()))
-        { //verifica que el formato del correo este correcto
-            alert('El formato del correo no es correcto');
-            $('.txtEmail').focus();
-        }
-        else {
-            alert('usuario es válido');
+        else 
+        {
+            hideAlert();
+            alert('Usuario creado.');
         }
     });
 
-    $('.btnLimpiar').click(function()
+    $('.btn-limpiar').click(function()
     {
-        $('.txtRut, .txtDv, .txtNombre,.txtEmail').val('');
-        $('.txtRut').focus();
+        hideAlert();
+        $('.txt-rut, .txt-dv, .txt-nombre, .txt-email').val('');
+        $('.txt-rut').focus();
     });
 
-    // definir patrones de caracteres a permitir
-    let numeros = '123457890';
-    let letras = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNMÁÉÍÓÚáéíóú ';
+    function hideAlert() { $('.alert').hide(); }
 
-    $('.txtDv').keypress(function(e)
-    {
-        // obtiene el codigo del caracter presionado y es convertido a 
-        // el mismo caracter
-        let dv = numeros + 'kK';
-        let caracter = String.fromCharCode(e.which); 
-        if(dv.indexOf(caracter)<0) // verifica si el caracter esta en el patrón
-            return false; // evita que se escriba el caracter presionado
-    });
-    $('.txtNombre').keypress(function(e)
-    {
-        // obtiene el codigo del caracter presionado y es convertido a 
-        // el mismo caracter
-        let caracter = String.fromCharCode(e.which); 
-        if(letras.indexOf(caracter)<0) // verifica si el caracter esta en el patrón
-            return false; // evita que se escriba el caracter presionado
-    });
-
-    function esValidoElRut(Rut,Digito)
-    {
-		let con             = Rut.length-1;
-		let factor          = 2;
-		let sumaProducto    = 0;
-		let caracter     	= 0;
- 
-		for( ;con>=0 ;con-- )
-		{
-			caracter = Rut.charAt(con);
-			sumaProducto += (factor * caracter);
-			if (++factor > 7)
-				factor=2;		
-		}
-        var digitoCaracter= "-123456789K0".charAt(11-(sumaProducto % 11));
-        return digitoCaracter == Digito.toUpperCase();            
-    } 
-
+    function showAlert(texto) { 
+        $('.alert').text(texto);
+        $('.alert').show(); 
+    }
 })

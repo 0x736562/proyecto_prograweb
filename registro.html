@@ -44,17 +44,26 @@
 	<div class="container" id="registro">
 		<h1>Registro</h1>
 		<form>
-			<label for="Rut">Rut</label>
-			<input type="number" name="txtRut" class="txtRut" placeholder="ej: 43505169" maxlength="8">
-			<label for="Dv">Digito Verificador</label>
-			<input type="text" name="txtDv" class="txtDv" placeholder="ej: K" maxlength="1" size="1">
+			<div class="row">
+				<div class="col-7">
+					<label for="Rut">RUT</label>
+					<input type="text" name="txt-rut" class="txt-rut" placeholder="ej: 22350519" maxlength="8">
+				</div>
+				<div style="align-self: center;" class="col-1">-</div>
+				<div class="col-4">
+					<label for="DV">DV</label>
+					<input type="text" name="txt-dv" class="txt-dv" placeholder="ej: K" maxlength="1">
+				</div>
+			</div>
 			<label for="Nombre">Nombre</label>
-			<input type="text" name="txtNombre" class="txtNombre" placeholder="ej: Juan" maxlength="50">
+			<input type="text" name="txtNombre" class="txt-nombre" placeholder="ej: Juan Marcos" maxlength="50">
 			<label for="Email">Email</label>
-			<input type="text" name="txtEmail" class="txtEmail" placeholder="ej: Ejemplo@gmail.com" maxlength="50">
-				
-			<button type="button" class="btnAceptar">Aceptar</button>
-			<button type="buttonlimpiar" style="margin-top: 24px;" class="btnLimpiar">Limpiar</button>
+			<input type="text" name="txtEmail" class="txt-email" placeholder="ej: ejemplo@gmail.com" maxlength="50">
+			
+			<div style="font-size: 14px; display: none;" class="alert alert-danger" role="alert"></div>
+			
+			<button type="button" class="btn-aceptar">Aceptar</button>
+			<button type="button" class="btn-limpiar" style="margin-top: 24px; background-color: black;">Limpiar</button>
 		</form>
 	</div>
 </body>
