@@ -1,79 +1,64 @@
 $(function()
 {
-    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
+    // regex de validacion de correo
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
+    var rutRegex = /[^0-9]/g;
+    var dvRegex = /(?!K|k)[^0-9]/g;
+
+    hideAlert();
     
-    $('.btnAceptar').click(function()
-    {
-        validarRut($('.txtRut').val());
-        if(!$('.txtRut').val())
-        {
-            alert('Falta el rut');
-            $('.txtRut').focus();
-        }
-        else if(!$.trim($('.txtNombre').val()))
-        {
-            alert('Falta el nombre');
-            $('.txtNombre').focus();
-        }
-        else if(!emailRegex.test($('.txtEmail').val()))
-        { //verifica que el formato del correo este correcto
-            alert('El formato del correo no es correcto');
-            $('.txtEmail').focus();
-        }
-    });
-    $('.btnLimpiar').click(function()
-    {
-        $('.txtRut, .txtDv, .txtNombre,.txtEmail').val('');
-        $('.txtRut').focus();
+    // limitar solo numeros en rut
+    $('.txt-rut').keyup(function()
+    { 
+        $(this).val($(this).val().replace(rutRegex,''));
     });
 
-    function validarRut(rut)
+    // limitar caracteres en dv
+    $('.txt-dv').keyup(function()
     {
-        // Despejar Puntos
-        var valor = rut.value.replace('.','');
-        // Despejar Guión
-        valor = valor.replace('-','');
-        
-        // Aislar Cuerpo y Dígito Verificador
-        cuerpo = valor.slice(0,-1);
-        dv = valor.slice(-1).toUpperCase();
-        
-        // Formatear RUN
-        rut.value = cuerpo + '-'+ dv
-        
-        // Si no cumple con el mínimo ej. (n.nnn.nnn)
-        if(cuerpo.length < 7) { rut.setCustomValidity("RUT Incompleto"); return false;}
-        
-        // Calcular Dígito Verificador
-        suma = 0;
-        multiplo = 2;
-        
-        // Para cada dígito del Cuerpo
-        for(i=1;i<=cuerpo.length;i++) {
-        
-            // Obtener su Producto con el Múltiplo Correspondiente
-            index = multiplo * valor.charAt(cuerpo.length - i);
-            
-            // Sumar al Contador General
-            suma = suma + index;
-            
-            // Consolidar Múltiplo dentro del rango [2,7]
-            if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
-    
-        }
-        
-        // Calcular Dígito Verificador en base al Módulo 11
-        dvEsperado = 11 - (suma % 11);
-        
-        // Casos Especiales (0 y K)
-        dv = (dv == 'K')?10:dv;
-        dv = (dv == 0)?11:dv;
-        
-        // Validar que el Cuerpo coincide con su Dígito Verificador
-        if(dvEsperado != dv) { rut.setCustomValidity("RUT Inválido"); return false; }
-        
-        // Si todo sale bien, eliminar errores (decretar que es válido)
-        rut.setCustomValidity('');         
-    } 
+        $(this).val($(this).val().replace(dvRegex,''));
+    })
 
+    $('.btn-aceptar').click(function()
+    {
+        if(!$('.txt-rut').val())
+        {
+            showAlert('Falta el RUT.');
+            $('.txt-rut').focus();
+        }
+        else if(!$('.txt-dv').val())
+        {
+            showAlert('Falta el digito verificador.');
+            $('.txt-dv').focus();
+        }
+        else if(!$.trim($('.txt-nombre').val()))
+        {
+            showAlert('Falta el nombre');
+            $('.txt-nombre').focus();
+        }
+        else if(!emailRegex.test($('.txt-email').val()))
+        {
+            showAlert('El formato del correo no es correcto');
+            $('.txt-email').focus();
+        }
+        else 
+        {
+            hideAlert();
+            alert('Usuario creado.');
+        }
+    });
+
+    $('.btn-limpiar').click(function()
+    {
+        hideAlert();
+        $('.txt-rut, .txt-dv, .txt-nombre, .txt-email').val('');
+        $('.txt-rut').focus();
+    });
+
+    function hideAlert() { $('.alert').hide(); }
+
+    function showAlert(texto) { 
+        $('.alert').text(texto);
+        $('.alert').show(); 
+    }
 })

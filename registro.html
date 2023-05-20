@@ -45,22 +45,25 @@
 		<h1>Registro</h1>
 		<form>
 			<div class="row">
-				<div class="col-8">
+				<div class="col-7">
 					<label for="Rut">RUT</label>
-					<input type="number" name="txt-rut" class="txt-rut" placeholder="ej: 4350519" maxlength="8">
+					<input type="text" name="txt-rut" class="txt-rut" placeholder="ej: 22350519" maxlength="8">
 				</div>
+				<div style="align-self: center;" class="col-1">-</div>
 				<div class="col-4">
-					<label for="Rut">DV</label>
-					<input type="number" name="txt-dv" class="txt-dv" placeholder="ej: K" maxlength="1">
+					<label for="DV">DV</label>
+					<input type="text" name="txt-dv" class="txt-dv" placeholder="ej: K" maxlength="1">
 				</div>
 			</div>
 			<label for="Nombre">Nombre</label>
 			<input type="text" name="txtNombre" class="txt-nombre" placeholder="ej: Juan Marcos" maxlength="50">
 			<label for="Email">Email</label>
 			<input type="text" name="txtEmail" class="txt-email" placeholder="ej: ejemplo@gmail.com" maxlength="50">
-				
-			<button type="button" class="btnAceptar">Aceptar</button>
-			<button type="buttonlimpiar" class="btnLimpiar" style="margin-top: 24px;">Limpiar</button>
+			
+			<div style="font-size: 14px; display: none;" class="alert alert-danger" role="alert"></div>
+			
+			<button type="button" class="btn-aceptar">Aceptar</button>
+			<button type="button" class="btn-limpiar" style="margin-top: 24px; background-color: black;">Limpiar</button>
 		</form>
 	</div>
 </body>
